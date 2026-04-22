@@ -18,7 +18,14 @@ with open('jawiki-country.json', 'r', encoding='utf-8') as f:
 			flag = True
 	
 		if flag:
+			# erasing markup for bold and italic
+			line = line.replace("'''''", "")
+			# erasing markup for bold
+			line = line.replace("'''", "")
+			# erasing markup for italic
+			line = line.replace("''", "")
+			line = line.replace("[[", "")
+			line = line.replace("]]", "")
 			print(line)
-		
 
 		if line.startswith('}}'): flag = False
